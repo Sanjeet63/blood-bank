@@ -1,0 +1,131 @@
+/* ===== Blood Bank - main stylesheet ===== */
+:root {
+    --red: #c62828;
+    --red-dark: #8e0000;
+    --red-light: #ffebee;
+    --green: #2e7d32;
+    --amber: #f9a825;
+    --text: #263238;
+    --muted: #78909c;
+    --bg: #f5f6fa;
+    --card: #ffffff;
+    --radius: 12px;
+    --shadow: 0 4px 18px rgba(0, 0, 0, .07);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+a { color: var(--red); text-decoration: none; }
+h1, h2, h3 { margin-top: 0; }
+h2 { font-size: 20px; color: var(--red-dark); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ----- Navbar ----- */
+.navbar { background: linear-gradient(90deg, var(--red-dark), var(--red)); color: #fff; position: sticky; top: 0; z-index: 10; box-shadow: var(--shadow); }
+.navbar .container { display: flex; align-items: center; height: 62px; gap: 18px; }
+.brand { font-size: 20px; font-weight: 700; color: #fff; flex: 1; display: flex; align-items: center; gap: 8px; }
+.brand .drop { font-size: 24px; }
+.navbar a { color: #fff; opacity: .9; }
+.navbar a:hover { opacity: 1; }
+.chip { background: rgba(255, 255, 255, .18); padding: 5px 12px; border-radius: 20px; font-size: 13px; }
+.btn-outline { border: 1px solid #fff; padding: 6px 14px; border-radius: 6px; }
+
+/* ----- Hero (landing page) ----- */
+.hero { background: linear-gradient(135deg, var(--red-dark), var(--red)); color: #fff; padding: 70px 0 90px; text-align: center; }
+.hero h1 { font-size: 40px; margin-bottom: 10px; }
+.hero p { font-size: 18px; opacity: .9; max-width: 640px; margin: 0 auto 28px; }
+.hero .btn { margin: 0 6px; }
+.btn-white { background: #fff; color: var(--red); }
+.btn-white:hover { background: #fdecea; }
+
+/* ----- Cards / sections ----- */
+.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; margin: 24px 0; }
+.lift { margin-top: -50px; position: relative; }
+.card-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.card-head h2 { margin: 0; }
+.auth { max-width: 420px; margin: 50px auto; }
+.auth h2 { text-align: center; font-size: 24px; }
+.auth .sub { text-align: center; color: var(--muted); margin-top: -8px; }
+.page-title { margin: 28px 0 0; }
+.page-title p { color: var(--muted); margin: 4px 0 0; }
+
+/* ----- Features ----- */
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.feature { text-align: center; padding: 20px; }
+.feature .icon { font-size: 34px; }
+.feature h3 { margin: 10px 0 6px; }
+.feature p { color: var(--muted); margin: 0; font-size: 14px; }
+
+/* ----- Stat cards ----- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 20px; }
+.stat { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; border-left: 5px solid var(--red); }
+.stat .num { font-size: 30px; font-weight: 700; }
+.stat .label { color: var(--muted); font-size: 14px; }
+.stat.green { border-color: var(--green); }
+.stat.amber { border-color: var(--amber); }
+
+/* ----- Blood group stock tiles ----- */
+.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 14px; }
+.group { border-radius: 10px; padding: 16px 10px; text-align: center; border: 2px solid #eee; background: #fff; transition: transform .15s; }
+.group:hover { transform: translateY(-3px); }
+.group .name { font-size: 22px; font-weight: 700; color: var(--red); }
+.group .units { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.group.ok { border-color: #c8e6c9; background: #f1f8f1; }
+.group.low { border-color: #ffe082; background: #fffbea; }
+.group.empty { border-color: #ffcdd2; background: var(--red-light); }
+.legend { display: flex; gap: 16px; font-size: 13px; color: var(--muted); margin-top: 12px; flex-wrap: wrap; }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+.legend .l-ok::before { background: var(--green); }
+.legend .l-low::before { background: var(--amber); }
+.legend .l-empty::before { background: var(--red); }
+
+/* ----- Forms ----- */
+label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 5px; color: #455a64; }
+input, select { width: 100%; padding: 10px 12px; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 14px; background: #fff; }
+input:focus, select:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(198, 40, 40, .12); }
+.btn, button { display: inline-block; background: var(--red); color: #fff; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; }
+.btn:hover, button:hover { background: var(--red-dark); }
+.btn-block { width: 100%; margin-top: 18px; }
+button.grey { background: #90a4ae; }
+button.grey:hover { background: #607d8b; }
+button.sm { padding: 6px 10px; font-size: 12px; }
+.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; align-items: end; }
+.form-row label { margin-top: 0; }
+.inline { display: inline-flex; gap: 6px; align-items: center; }
+.inline input, .inline select { width: auto; }
+.tiny { width: 60px !important; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ----- Tables ----- */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+th { background: #fafafa; text-align: left; color: #546e7a; font-weight: 600; border-bottom: 2px solid #eceff1; }
+th, td { padding: 11px 12px; }
+td { border-bottom: 1px solid #eceff1; }
+tr:hover td { background: #fcfcfc; }
+.kv th { width: 180px; background: none; border-bottom: 1px solid #eceff1; }
+.empty-row { text-align: center; color: var(--muted); padding: 20px; }
+
+/* ----- Badges and alerts ----- */
+.badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.badge.PENDING { background: #fff8e1; color: #b28704; }
+.badge.ISSUED { background: #e8f5e9; color: var(--green); }
+.badge.REJECTED { background: var(--red-light); color: var(--red); }
+.badge.group-badge { background: var(--red-light); color: var(--red); }
+.alert { padding: 12px 16px; border-radius: 8px; margin: 10px 0; font-size: 14px; }
+.alert.error { background: var(--red-light); color: var(--red); border-left: 4px solid var(--red); }
+.alert.success { background: #e8f5e9; color: var(--green); border-left: 4px solid var(--green); }
+.alert.warn { background: #fff8e1; color: #8d6e00; border-left: 4px solid var(--amber); }
+
+/* ----- Toast (flash message) ----- */
+.toast { position: fixed; top: 76px; right: 20px; background: #263238; color: #fff; padding: 14px 20px; border-radius: 8px; box-shadow: var(--shadow); z-index: 20; max-width: 360px; transition: opacity .4s; }
+
+.hint { text-align: center; color: var(--muted); font-size: 13px; }
+.center { text-align: center; }
+footer { text-align: center; color: var(--muted); font-size: 13px; padding: 30px 0; }
+
+@media (max-width: 640px) {
+    .hero h1 { font-size: 28px; }
+    .two-col { grid-template-columns: 1fr; }
+    .chip { display: none; }
+}

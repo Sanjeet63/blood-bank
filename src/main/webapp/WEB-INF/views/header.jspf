@@ -1,0 +1,25 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" href="${ctx}/css/style.css">
+<script src="${ctx}/js/app.js"></script>
+<nav class="navbar">
+    <div class="container">
+        <a href="${ctx}/home" class="brand"><span class="drop">&#129656;</span> LifeLine Blood Bank</a>
+        <a href="${ctx}/home">Home</a>
+        <c:choose>
+            <c:when test="${not empty sessionScope.user}">
+                <a href="${ctx}/${sessionScope.user.role.toLowerCase()}/home">Dashboard</a>
+                <span class="chip">&#128100; <c:out value="${sessionScope.user.username}"/> &middot; ${sessionScope.user.role}</span>
+                <a href="${ctx}/logout" class="btn-outline">Logout</a>
+            </c:when>
+            <c:otherwise>
+                <a href="${ctx}/login">Login</a>
+                <a href="${ctx}/register" class="btn-outline">Register</a>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</nav>
+<c:if test="${not empty sessionScope.msg}">
+    <div class="toast"><c:out value="${sessionScope.msg}"/></div>
+    <c:remove var="msg" scope="session"/>
+</c:if>

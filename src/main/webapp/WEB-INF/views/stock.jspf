@@ -1,0 +1,15 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%-- Reusable stock tiles. Needs request attribute "stock" (Map group -> units). --%>
+<div class="groups">
+    <c:forEach var="s" items="${stock}">
+        <div class="group ${s.value == 0 ? 'empty' : (s.value < 5 ? 'low' : 'ok')}">
+            <div class="name">${s.key}</div>
+            <div class="units">${s.value} unit(s)</div>
+        </div>
+    </c:forEach>
+</div>
+<div class="legend">
+    <span class="l-ok">Available (5+)</span>
+    <span class="l-low">Low (1-4)</span>
+    <span class="l-empty">Out of stock</span>
+</div>
